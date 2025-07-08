@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathUtils - Even/Odd Checker</title>tle>
+    <link rel="stylesheet" href="even-odd-style.css">
+    <link rel="icon" href="assets/images/icon.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">🧮 MathUtils</a>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">🔍 Prime Visualization</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="even-odd-checker.html" class="navbar-link">⚡ Even/Odd Checker</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="gcd-lcm.html" class="navbar-link active">🔢 GCD & LCM</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="ascii-cheat-sheet.html" class="navbar-link">📝 ASCII Cheat Sheet</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="nfa-converter.html" class="navbar-link">🔄 Regex → NFA</a>
+                </li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="blog-header">
+            <h1>Even or Odd Number Checker</h1>
+            <p class="subtitle">Enter any number to instantly discover if it's even or odd!</p>lass="blog-header">
+        </header>            <h1>GCD & LCM Calculator</h1>
+d the Greatest Common Divisor and Least Common Multiple of any two numbers instantly!</p>
+        <main class="main-content">
+            <div class="checker-card">
+                <div class="input-section">
+                    <label for="numberInput">Enter a Number:</label>
+                    <input type="number" id="numberInput" placeholder="Type any number here...">
+                    <button id="checkBtn">Check Now</button>iv class="input-section">
+                </div>                        <h2>Enter Two Numbers</h2>
+
+                <div class="result-section" id="resultSection">
+                    <div class="result-card" id="resultCard">
+                        <div class="number-display" id="numberDisplay"></div>holder="Enter first number..." min="1">
+                        <div class="result-text" id="resultText"></div>
+                        <div class="explanation" id="explanation"></div>  <div class="vs-divider">
+                    </div>          <span>×</span>
+                </div>          </div>
+            </div>                            <div class="number-input">
+er2">Second Number:</label>
+            <div class="info-section" id="info">="number2" placeholder="Enter second number..." min="1">
+                <h2>What are Even and Odd Numbers?</h2>
+                <div class="info-grid">
+                    <div class="info-card even-card">">Calculate GCD & LCM</button>
+                        <h3>🔵 Even Numbers</h3>
+                        <p>Numbers that are divisible by 2 with no remainder.</p>
+                        <div class="examples">
+                            <strong>Examples:</strong> 2, 4, 6, 8, 10, 12...lass="results-grid">
+                        </div>t-card gcd-card">
+                        <div class="formula">
+                            <strong>Formula:</strong> n ÷ 2 = whole number  <div class="result-label">GCD</div>
+                        </div>      <div class="result-value" id="gcdResult">-</div>
+                    </div>            <div class="result-description">Greatest Common Divisor</div>
+                    
+                    <div class="info-card odd-card">
+                        <h3>🔴 Odd Numbers</h3>
+                        <p>Numbers that leave a remainder of 1 when divided by 2.</p>sult-icon">📐</div>
+                        <div class="examples">
+                            <strong>Examples:</strong> 1, 3, 5, 7, 9, 11...  <div class="result-value" id="lcmResult">-</div>
+                        </div>esult-description">Least Common Multiple</div>
+                        <div class="formula">
+                            <strong>Formula:</strong> n ÷ 2 = whole number + 1
+                        </div>
+                    </div>  <div class="calculation-steps" id="calculationSteps">
+                </div>          <h3>Step-by-Step Solution</h3>
+            </div>                            <div class="steps-content" id="stepsContent"></div>
+
+            <div class="github-section">
+                <h2>🚀 Explore More Projects</h2>
+                <div class="github-container">
+                    <a href="https://github.com/raihanulislam00" target="_blank" class="github-link">
+                        <div class="github-card">
+                            <div class="github-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>ard gcd-info">
+                                </svg>atest Common Divisor (GCD)</h3>
+                            </div>that divides both numbers without leaving a remainder.</p>
+                            <div class="github-content">
+                                <h3>Visit My GitHub</h3>
+                                <p>Check out more mathematical tools and projects</p>oth 12 and 18</small>
+                                <span class="github-username">@raihanulislam00</span>
+                            </div>lass="formula-box">
+                        </div>    <strong>Methods:</strong>
+                    </a>      <ul>
+                </div>              <li>Euclidean Algorithm</li>
+            </div>                 <li>Prime Factorization</li>
+        </main>                                <li>Listing Factors</li>
+
+        <footer class="blog-footer">
+            <p>&copy; 2025 MathUtils | Raihanul Islam</p>   </div>
+        </footer>          
+    </div>                    <div class="info-card lcm-info">
+ltiple (LCM)</h3>
+    <script src="even-odd-script.js"></script>                 <p>The smallest positive integer that is divisible by both numbers.</p>
+</body>                 <div class="example-box">
+</html>                            <strong>Example:</strong> LCM(12, 18) = 36
+
+                            <br><small>Because 36 is the smallest number divisible by both 12 and 18</small>
+                        </div>
+                        <div class="formula-box">
+                            <strong>Formula:</strong>
+                            <br>LCM(a,b) = (a × b) ÷ GCD(a,b)
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relationship-card">
+                    <h3>🔄 Relationship Between GCD and LCM</h3>
+                    <div class="relationship-formula">
+                        <span class="formula">GCD(a,b) × LCM(a,b) = a × b</span>
+                    </div>
+                    <p>This fundamental relationship shows that the product of GCD and LCM of two numbers equals the product of the numbers themselves.</p>
+                </div>
+            </div>
+
+            <div class="github-section">
+                <h2>🚀 Explore More Projects</h2>
+                <div class="github-container">
+                    <a href="https://github.com/raihanulislam00" target="_blank" class="github-link">
+                        <div class="github-card">
+                            <div class="github-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </div>
+                            <div class="github-content">
+                                <h3>Visit My GitHub</h3>
+                                <p>Check out more mathematical tools and projects</p>
+                                <span class="github-username">@raihanulislam00</span>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="quick-examples">
+                <h2>Quick Examples</h2>
+                <div class="examples-grid">
+                    <button class="example-btn" data-num1="12" data-num2="18">12 & 18</button>
+                    <button class="example-btn" data-num1="15" data-num2="25">15 & 25</button>
+                    <button class="example-btn" data-num1="48" data-num2="18">48 & 18</button>
+                    <button class="example-btn" data-num1="21" data-num2="28">21 & 28</button>
+                    <button class="example-btn" data-num1="36" data-num2="48">36 & 48</button>
+                    <button class="example-btn" data-num1="14" data-num2="35">14 & 35</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="blog-footer">
+            <p>&copy; 2025 MathUtils | Raihanul Islam</p>
+        </footer>
+    </div>
+
+    <script src="gcd-lcm-script.js"></script>
+</body>
+</html>

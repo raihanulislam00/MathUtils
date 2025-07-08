@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regex to NFA Converter - MathUtils</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/icon.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">🧮 MathUtils</a>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">🔍 Prime Visualization</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="even-odd-checker.html" class="navbar-link">⚡ Even/Odd Checker</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="gcd-lcm.html" class="navbar-link">🔢 GCD & LCM</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="ascii-cheat-sheet.html" class="navbar-link">📝 ASCII Cheat Sheet</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="nfa-converter.html" class="navbar-link active">🔄 Regex → NFA</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="base64.html" class="navbar-link">🔐 Base64</a>
+                </li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+    <div class="wrapper" id="wrapper">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <h1>🔄 Regex → NFA Converter</h1>
+        <p class="subtitle">Convert a regular expression to a Non-deterministic Finite Automaton (NFA) and visualize the result!</p>
+      </div>
+
+      <!-- Instructions Panel -->
+      <div class="instructions-panel">
+        <h3>🎮 How to Use</h3>
+        <div class="instruction-grid">
+          <div class="instruction-item">
+            <span class="instruction-icon">📝</span>
+            <p>Enter a regex using a-z, 0-9, |, *, and parentheses</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">⚡</span>
+            <p>Click <b>Convert</b> to see the NFA table and visualization</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">👀</span>
+            <p>Explore the NFA structure and transitions</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Converter Card -->
+      <div class="card checker-card">
+        <div class="input-section animated-gradient-bg">
+          <div class="input-header">
+            <div class="input-emoji">🔄</div>
+            <h2 class="input-title">Regex to NFA Converter</h2>
+            <p class="input-subtitle">Enter a regular expression and instantly see its NFA!</p>
+          </div>
+          <div class="input-container" style="max-width: 500px; margin: 0 auto; gap: 1rem; display: flex; align-items: center; justify-content: center;">
+            <input type="text" id="regexInput" placeholder="e.g. (a|b)*abb" required style="width: 100%; font-size: 1.2rem; padding: 0.85rem 1.1rem; border-radius: 12px; border: 2px solid #2563eb33; background: #f8fafc; color: #1e3a8a; box-shadow: 0 2px 12px #3b82f622; outline: none; font-weight: 600; letter-spacing: 0.5px;" />
+            <button type="submit" id="convertBtn" class="btn" style="font-size: 1.13rem; padding: 0.85rem 1.7rem; border-radius: 12px; background: linear-gradient(90deg, #2563eb 0%, #3b82f6 100%); color: #fff; font-weight: 800; box-shadow: 0 2px 12px #3b82f622; display: flex; align-items: center; gap: 0.6rem; border: none;">
+              <span class="button-text">Convert</span>
+              <span class="button-icon">✨</span>
+            </button>
+          </div>
+        </div>
+        <div class="result-section" id="resultSection">
+          <div id="nfaOutput" style="margin-top: 30px;"></div>
+          <div id="nfaVisualization" style="margin-top: 30px;"></div>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="legend elevated-card" id="legend">
+        <h3 class="legend-title">📋 Regex Syntax Reference</h3>
+        <div class="legend-items" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+          <div class="legend-item" style="flex: 1 1 250px;">
+            <h4>Basic Symbols</h4>
+            <ul>
+              <li><strong>a-z, 0-9:</strong> Characters and digits</li>
+              <li><strong>|</strong> (pipe): Alternation (OR)</li>
+              <li><strong>*</strong>: Zero or more (Kleene star)</li>
+              <li><strong>( )</strong>: Grouping</li>
+            </ul>
+          </div>
+          <div class="legend-item" style="flex: 1 1 250px;">
+            <h4>Examples</h4>
+            <ul>
+              <li><code>a*</code>: Zero or more a's</li>
+              <li><code>(a|b)*abb</code>: Strings ending with abb</li>
+              <li><code>1(0|1)*</code>: Binary numbers starting with 1</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Facts Section -->
+      <div class="fun-facts-section elevated-card">
+        <h3>🧠 Did You Know?</h3>
+        <div class="facts-grid" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+          <div class="fact-card" style="flex: 1 1 320px;">
+            <h4>What is an NFA?</h4>
+            <p>An NFA (Non-deterministic Finite Automaton) is a mathematical model for recognizing patterns and regular languages.</p>
+          </div>
+          <div class="fact-card" style="flex: 1 1 320px;">
+            <h4>Regex in Real Life</h4>
+            <p>Regular expressions are used in programming, search engines, and text editors to match and manipulate text.</p>
+          </div>
+        </div>
+      </div>
+    <script src="script.js"></script>
+    <script src="nfa-converter.js"></script>
+</body>
+</html> 

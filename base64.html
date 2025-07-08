@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Base64 Encode/Decode - MathUtils</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/icon.png">
+    <style>
+        .encoder-section {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-family: monospace;
+            resize: vertical;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        
+        .action-btn {
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 8px;
+            background: #667eea;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .action-btn:hover {
+            background: #5a6fd6;
+        }
+        
+        .clear-btn {
+            background: #dc3545;
+        }
+        
+        .clear-btn:hover {
+            background: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">🧮 MathUtils</a>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">🔍 Prime Visualization</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="even-odd-checker.html" class="navbar-link">⚡ Even/Odd Checker</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="gcd-lcm.html" class="navbar-link">🔢 GCD & LCM</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="ascii-cheat-sheet.html" class="navbar-link">📝 ASCII Cheat Sheet</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="nfa-converter.html" class="navbar-link">🔄 Regex → NFA</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="base64.html" class="navbar-link active">🔐 Base64</a>
+                </li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="wrapper">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <h1>🔐 Base64 Encoder/Decoder</h1>
+        <p class="subtitle">Convert text to Base64 and decode Base64 back to text</p>
+      </div>
+
+      <!-- Instructions Panel -->
+      <div class="instructions-panel">
+        <h3>🎮 How to Use</h3>
+        <div class="instruction-grid">
+          <div class="instruction-item">
+            <span class="instruction-icon">📝</span>
+            <p>Enter text or Base64 in the boxes below</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">🔄</span>
+            <p>Click <b>Encode</b> or <b>Decode</b> to convert</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">📋</span>
+            <p>Copy, clear, and reuse as needed</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Encoder/Decoder Card -->
+      <div class="card checker-card">
+        <div class="input-section animated-gradient-bg">
+          <div class="input-header">
+            <div class="input-emoji">🔐</div>
+            <h2 class="input-title">Base64 Encode & Decode</h2>
+            <p class="input-subtitle">Easily convert between text and Base64!</p>
+          </div>
+          <div class="input-container" style="flex-direction: column; gap: 2.5rem; max-width: 700px; margin: 0 auto;">
+            <div class="gcd-lcm-inputs" style="gap: 2.5rem;">
+              <div class="input-wrapper" style="flex: 1;">
+                <label for="textInput" style="font-weight: 700; color: #2563eb;">Text Input</label>
+                <textarea id="textInput" placeholder="Enter text to encode..." style="min-height: 100px; font-size: 1.1rem; border-radius: 12px; border: 2px solid #2563eb33; background: #f8fafc; color: #1e3a8a; box-shadow: 0 2px 12px #3b82f622; margin-top: 0.5rem;"></textarea>
+                <div class="button-group" style="margin-top: 0.7rem;">
+                  <button class="btn gcd-lcm-btn" onclick="encodeText()">Encode to Base64</button>
+                  <button class="btn gcd-lcm-btn" style="background: #ef4444;" onclick="clearText('textInput')">Clear</button>
+                </div>
+              </div>
+              <div class="input-wrapper" style="flex: 1;">
+                <label for="base64Input" style="font-weight: 700; color: #2563eb;">Base64 Input</label>
+                <textarea id="base64Input" placeholder="Enter Base64 to decode..." style="min-height: 100px; font-size: 1.1rem; border-radius: 12px; border: 2px solid #2563eb33; background: #f8fafc; color: #1e3a8a; box-shadow: 0 2px 12px #3b82f622; margin-top: 0.5rem;"></textarea>
+                <div class="button-group" style="margin-top: 0.7rem;">
+                  <button class="btn gcd-lcm-btn" onclick="decodeBase64()">Decode from Base64</button>
+                  <button class="btn gcd-lcm-btn" style="background: #ef4444;" onclick="clearText('base64Input')">Clear</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Facts Section -->
+      <div class="fun-facts-section elevated-card">
+        <h3>🔎 What is Base64?</h3>
+        <div class="facts-grid" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+          <div class="fact-card" style="flex: 1 1 320px;">
+            <h4>Encoding</h4>
+            <p>Base64 encodes binary data as ASCII text using 64 characters (A-Z, a-z, 0-9, +, /). It's used for safe data transfer in email, URLs, and more.</p>
+          </div>
+          <div class="fact-card" style="flex: 1 1 320px;">
+            <h4>Decoding</h4>
+            <p>Decoding reverses the process, converting Base64 text back to its original binary or text form.</p>
+          </div>
+          <div class="fact-card" style="flex: 1 1 320px;">
+            <h4>Applications</h4>
+            <p>Base64 is used in web APIs, cryptography, image embedding, and more. It's not encryption—just encoding!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+        function encodeText() {
+            const textInput = document.getElementById('textInput');
+            const base64Input = document.getElementById('base64Input');
+            try {
+                const encoded = btoa(textInput.value);
+                base64Input.value = encoded;
+            } catch (e) {
+                alert('Error encoding text. Make sure you\'re using valid characters.');
+            }
+        }
+
+        function decodeBase64() {
+            const textInput = document.getElementById('textInput');
+            const base64Input = document.getElementById('base64Input');
+            try {
+                const decoded = atob(base64Input.value);
+                textInput.value = decoded;
+            } catch (e) {
+                alert('Error decoding Base64. Make sure you\'ve entered valid Base64 text.');
+            }
+        }
+
+        function clearText(id) {
+            document.getElementById(id).value = '';
+        }
+
+        // Navigation toggle
+        document.getElementById('navbarToggle').addEventListener('click', function() {
+            document.getElementById('navbarMenu').classList.toggle('active');
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

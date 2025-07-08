@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathUtils - Prime Visualization</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="assets/images/icon.png" />
+    <style>
+      .prime-table {
+        margin: 20px auto;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">🧮 MathUtils</a>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link active">🔍 Prime Visualization</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="even-odd-checker.html" class="navbar-link">⚡ Even/Odd Checker</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="gcd-lcm.html" class="navbar-link">🔢 GCD & LCM</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="ascii-cheat-sheet.html" class="navbar-link">📝 ASCII Cheat Sheet</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="nfa-converter.html" class="navbar-link">🔄 Regex → NFA</a>
+                </li>
+                 <li class="navbar-item">
+                    <a href="base64.html" class="navbar-link">🔐 Base64</a>
+                </li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="wrapper">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        
+        <h1>🔍 Prime Number Visualization</h1>
+        <p class="subtitle">Discover the fascinating world of prime numbers from 1 to 200 using the ancient Sieve of Eratosthenes algorithm</p>
+        
+        
+      <!-- Prime Race Game -->
+      <div class="game-section">
+        <h3>🏁 Prime Race Game</h3>
+        <div class="game-controls">
+          <button class="game-btn" id="startRaceBtn">🚀 Start Prime Race</button>
+          <button class="game-btn" id="pauseRaceBtn" disabled>⏸️ Pause</button>
+          <button class="game-btn" id="resetRaceBtn">🔄 Reset</button>
+        </div>
+        <div class="game-info">
+          <div class="game-stat">
+            <span class="game-label">Primes Found:</span>
+            <span class="game-value" id="primesFound">0</span>
+          </div>
+          <div class="game-stat">
+            <span class="game-label">Current Number:</span>
+            <span class="game-value" id="currentNumber">1</span>
+          </div>
+          <div class="game-stat">
+            <span class="game-label">Speed:</span>
+            <span class="game-value" id="raceSpeed">Normal</span>
+          </div>
+        </div>
+        <div class="speed-controls">
+          <button class="speed-btn" data-speed="slow">🐢 Slow</button>
+          <button class="speed-btn active" data-speed="normal">🚶 Normal</button>
+          <button class="speed-btn" data-speed="fast">🏃 Fast</button>
+          <button class="speed-btn" data-speed="turbo">🚀 Turbo</button>
+        </div>
+      </div>
+      <!-- Instructions Panel -->
+      <div class="instructions-panel">
+        <h3>🎮 How to Explore</h3>
+        <div class="instruction-grid">
+          <div class="instruction-item">
+            <span class="instruction-icon">👆</span>
+            <p>Click any number to see its mathematical properties</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">🖱️</span>
+            <p>Hover over numbers for quick information</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">✨</span>
+            <p class="red-instruction">Click numbers to highlight and explore their properties</p>
+          </div>
+        </div>
+      </div>
+      
+      <table class="prime-table" id="prime-table">
+        <tbody class="prime-table-body" id="prime-table-body"></tbody>
+      </table>
+      
+      <div class="legend" id="legend">
+        <h3 class="legend-title">🎨 Number Classification</h3>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="legend-color prime"></div>
+            <div class="legend-text">
+              <span class="legend-label">Prime Numbers</span>
+              <span class="legend-description">Only divisible by 1 and themselves</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color composite"></div>
+            <div class="legend-text">
+              <span class="legend-label">Composite Numbers</span>
+              <span class="legend-description">Have more than two factors</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color neutral"></div>
+            <div class="legend-text">
+              <span class="legend-label">Neither Prime nor Composite</span>
+              <span class="legend-description">The number 1 is unique</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Facts Section -->
+      <div class="fun-facts-section">
+        <h3>🧠 Did You Know?</h3>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <div class="fact-icon">🎯</div>
+            <h4>Largest Prime</h4>
+            <p>The largest known prime number has over 24 million digits and would take months to write out by hand!</p>
+            <div class="fact-highlight">2^82,589,933 - 1</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🏛️</div>
+            <h4>Ancient Algorithm</h4>
+            <p>The Sieve of Eratosthenes was invented around 240 BC by a Greek mathematician and is still used today!</p>
+            <div class="fact-highlight">Over 2,200 years old</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🔢</div>
+            <h4>Prime Distribution</h4>
+            <p>There are exactly 25 prime numbers between 1 and 100, but the gaps between them grow larger.</p>
+            <div class="fact-highlight">25 primes in first 100</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🔐</div>
+            <h4>Cryptography</h4>
+            <p>Prime numbers are the backbone of modern internet security and encryption systems.</p>
+            <div class="fact-highlight">RSA encryption</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">♾️</div>
+            <h4>Infinite Primes</h4>
+            <p>Euclid proved over 2,000 years ago that there are infinitely many prime numbers.</p>
+            <div class="fact-highlight">∞ prime numbers</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🎲</div>
+            <h4>Random Patterns</h4>
+            <p>Prime numbers appear random, but they follow mysterious patterns that mathematicians still study.</p>
+            <div class="fact-highlight">Riemann Hypothesis</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prime Patterns Section -->
+      <div class="patterns-section">
+        <h3>🎨 Discover Patterns</h3>
+        <div class="pattern-buttons">
+          <button class="pattern-btn" data-pattern="twin">👥 Twin Primes</button>
+          <button class="pattern-btn" data-pattern="sophie">🌟 Sophie Germain</button>
+          <button class="pattern-btn" data-pattern="fibonacci">🌀 Fibonacci Primes</button>
+          <button class="pattern-btn" data-pattern="palindrome">🔄 Palindromic</button>
+          <button class="pattern-btn" data-pattern="safe">🛡️ Safe Primes</button>
+          <button class="pattern-btn" data-pattern="clear">✨ Clear All</button>
+        </div>
+        <div class="pattern-description" id="patternDescription">
+          <p>Click on any pattern button above to explore different types of prime numbers and their unique properties!</p>
+        </div>
+        <div class="pattern-stats" id="patternStats">
+          <div class="stat-badge">
+            <span class="stat-emoji">🎯</span>
+            <span class="stat-text">Click a pattern to see statistics</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Prime Explorer -->
+      <div class="explorer-section">
+        <h3>🔍 Prime Explorer</h3>
+        <div class="explorer-controls">
+          <div class="explorer-input">
+            <label for="numberInput">Enter a number (1-200):</label>
+            <input type="number" id="numberInput" min="1" max="200" placeholder="Enter number...">
+            <button class="explore-btn" id="exploreBtn">🔍 Explore</button>
+          </div>
+          <div class="explorer-results" id="explorerResults">
+            <div class="result-placeholder">
+              <span class="placeholder-icon">🎲</span>
+              <p>Enter a number to discover its mathematical properties!</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="github-section">
+        <h2>🚀 Explore More Projects</h2>
+        <div class="github-container">
+          <a href="https://github.com/raihanulislam00" target="_blank" class="github-link">
+            <div class="github-card">
+              <div class="github-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+              </div>
+              <div class="github-content">
+                <h3>Visit My GitHub</h3>
+                <p>Check out more mathematical tools and projects</p>
+                <span class="github-username">@raihanulislam00</span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASCII Cheat Sheet - MathUtils</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/icon.png" />
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">🧮 MathUtils</a>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">🔍 Prime Visualization</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="even-odd-checker.html" class="navbar-link">⚡ Even/Odd Checker</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="gcd-lcm.html" class="navbar-link">🔢 GCD & LCM</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="ascii-cheat-sheet.html" class="navbar-link active">📝 ASCII Cheat Sheet</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="nfa-converter.html" class="navbar-link">🔄 Regex → NFA</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="base64.html" class="navbar-link">🔐 Base64</a>
+                </li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="wrapper">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <h1>📝 ASCII Cheat Sheet</h1>
+        <p class="subtitle">Complete reference guide for ASCII characters and their decimal, hexadecimal, and binary values</p>
+      </div>
+
+      <!-- Instructions Panel -->
+      <div class="instructions-panel">
+        <h3>🎮 How to Use</h3>
+        <div class="instruction-grid">
+          <div class="instruction-item">
+            <span class="instruction-icon">🔍</span>
+            <p>Search or filter ASCII characters by type, value, or description</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">🔄</span>
+            <p>Use the converter to switch between character, decimal, hex, and binary</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">📋</span>
+            <p>Quickly reference control, printable, and extended ASCII codes</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Search and Converter Card -->
+      <div class="card checker-card">
+        <div class="input-section animated-gradient-bg">
+          <div class="input-header">
+            <div class="input-emoji">📝</div>
+            <h2 class="input-title">ASCII Search & Converter</h2>
+            <p class="input-subtitle">Find, filter, and convert ASCII codes instantly!</p>
+          </div>
+          <div class="input-container" style="flex-direction: column; gap: 2rem; max-width: 700px; margin: 0 auto;">
+            <div class="search-controls" style="margin-bottom: 0.5rem;">
+              <input type="text" id="searchInput" placeholder="Search by character, decimal, hex, or description..." class="search-input" style="width: 100%;" />
+              <div class="filter-buttons" style="margin-top: 1rem;">
+                <button class="filter-btn active" data-category="all">All</button>
+                <button class="filter-btn" data-category="printable">Printable</button>
+                <button class="filter-btn" data-category="control">Control</button>
+                <button class="filter-btn" data-category="symbols">Symbols</button>
+                <button class="filter-btn" data-category="letters">Letters</button>
+                <button class="filter-btn" data-category="numbers">Numbers</button>
+              </div>
+            </div>
+            <div class="converter-grid">
+              <div class="converter-input">
+                <label for="charInput">Character:</label>
+                <input type="text" id="charInput" maxlength="1" placeholder="Enter a character" />
+              </div>
+              <div class="converter-input">
+                <label for="decInput">Decimal:</label>
+                <input type="number" id="decInput" min="0" max="255" placeholder="0-255" />
+              </div>
+              <div class="converter-input">
+                <label for="hexInput">Hexadecimal:</label>
+                <input type="text" id="hexInput" placeholder="00-FF" />
+              </div>
+              <div class="converter-input">
+                <label for="binInput">Binary:</label>
+                <input type="text" id="binInput" placeholder="00000000" />
+              </div>
+            </div>
+            <div class="converter-result" id="converterResult">
+              <p>Enter a value above to see conversions</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASCII Table Section -->
+      <section class="ascii-table-section">
+        <div class="table-container">
+          <table class="ascii-table" id="asciiTable">
+            <thead>
+              <tr>
+                <th>Char</th>
+                <th>Dec</th>
+                <th>Hex</th>
+                <th>Bin</th>
+                <th>Description</th>
+                <th>Category</th>
+              </tr>
+            </thead>
+            <tbody id="asciiTableBody">
+              <!-- ASCII data will be populated by JavaScript -->
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- Quick Reference Section -->
+      <div class="legend elevated-card" id="legend" style="margin-top: 2.5rem;">
+        <h3 class="legend-title">📋 Quick Reference</h3>
+        <div class="legend-items" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+          <div class="legend-item" style="flex: 1 1 250px;">
+            <h4>Control Characters (0-31)</h4>
+            <p>Special non-printable characters used for text formatting and control</p>
+            <ul>
+              <li><strong>0:</strong> NULL</li>
+              <li><strong>9:</strong> TAB</li>
+              <li><strong>10:</strong> LF (Line Feed)</li>
+              <li><strong>13:</strong> CR (Carriage Return)</li>
+              <li><strong>27:</strong> ESC (Escape)</li>
+            </ul>
+          </div>
+          <div class="legend-item" style="flex: 1 1 250px;">
+            <h4>Printable Characters (32-126)</h4>
+            <p>Visible characters including letters, numbers, and symbols</p>
+            <ul>
+              <li><strong>32:</strong> Space</li>
+              <li><strong>48-57:</strong> Digits (0-9)</li>
+              <li><strong>65-90:</strong> Uppercase (A-Z)</li>
+              <li><strong>97-122:</strong> Lowercase (a-z)</li>
+            </ul>
+          </div>
+          <div class="legend-item" style="flex: 1 1 250px;">
+            <h4>Extended ASCII (128-255)</h4>
+            <p>Extended characters for international and special symbols</p>
+            <ul>
+              <li><strong>128-159:</strong> Control characters</li>
+              <li><strong>160-255:</strong> Extended symbols</li>
+              <li>Used for accented characters</li>
+              <li>Mathematical symbols</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Common Sequences Section -->
+      <div class="fun-facts-section elevated-card">
+        <h3>⚡ Common Sequences</h3>
+        <div class="facts-grid" style="display: flex; flex-wrap: wrap; gap: 2rem;">
+          <div class="fact-card" style="flex: 1 1 320px;">
+            <h4>Escape Sequences</h4>
+            <div class="sequence-list">
+              <div class="sequence-item"><code>\n</code> <span>New Line (LF)</span> <span class="ascii-code">10</span></div>
+              <div class="sequence-item"><code>\r</code> <span>Carriage Return (CR)</span> <span class="ascii-code">13</span></div>
+              <div class="sequence-item"><code>\t</code> <span>Tab</span> <span class="ascii-code">9</span></div>
+              <div class="sequence-item"><code>\\</code> <span>Backslash</span> <span class="ascii-code">92</span></div>
+              <div class="sequence-item"><code>\"</code> <span>Double Quote</span> <span class="ascii-code">34</span></div>
+            </div>
+          </div>
+          <div class="fact-card" style="flex: 1 1 320px;">
+            <h4>Special Characters</h4>
+            <div class="sequence-list">
+              <div class="sequence-item"><code>!</code> <span>Exclamation Mark</span> <span class="ascii-code">33</span></div>
+              <div class="sequence-item"><code>@</code> <span>At Sign</span> <span class="ascii-code">64</span></div>
+              <div class="sequence-item"><code>#</code> <span>Hash/Pound</span> <span class="ascii-code">35</span></div>
+              <div class="sequence-item"><code>$</code> <span>Dollar Sign</span> <span class="ascii-code">36</span></div>
+              <div class="sequence-item"><code>%</code> <span>Percent Sign</span> <span class="ascii-code">37</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="blog-footer">
+        <p>Made with ❤️ by <a href="https://github.com/raihanulislam00" target="_blank">Raihanul Islam</a></p>
+        <script src="ascii-cheat-sheet-script.js"></script>
+      </footer>
+    </div>
+</body>
+</html>

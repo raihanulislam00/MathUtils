@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MathUtils - GCD & LCM Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="assets/images/icon.png">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-container">
+            <a href="#" class="navbar-brand">🧮 MathUtils</a>
+            <ul class="navbar-menu" id="navbarMenu">
+                <li class="navbar-item">
+                    <a href="index.html" class="navbar-link">🔍 Prime Visualization</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="even-odd-checker.html" class="navbar-link">⚡ Even/Odd Checker</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="gcd-lcm.html" class="navbar-link active">🔢 GCD & LCM</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="ascii-cheat-sheet.html" class="navbar-link">📝 ASCII Cheat Sheet</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="nfa-converter.html" class="navbar-link">🔄 Regex → NFA</a>
+                </li>
+                <li class="navbar-item">
+                    <a href="base64.html" class="navbar-link">🔐 Base64</a>
+                </li>
+            </ul>
+            <button class="navbar-toggle" id="navbarToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="wrapper" id="wrapper">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <h1>🔢 GCD & LCM Calculator</h1>
+        <p class="subtitle">Find the Greatest Common Divisor and Least Common Multiple of any two numbers instantly!</p>
+      </div>
+
+      <!-- Instructions Panel -->
+      <div class="instructions-panel">
+        <h3>🎮 How to Use</h3>
+        <div class="instruction-grid">
+          <div class="instruction-item">
+            <span class="instruction-icon">1️⃣</span>
+            <p>Enter two numbers in the input boxes below</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">⚡</span>
+            <p>Click <b>Calculate GCD & LCM</b> to see the results</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">👀</span>
+            <p>See step-by-step solutions and explanations</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Calculator Card -->
+      <div class="card checker-card gcd-lcm-modern-card">
+        <div class="input-section animated-gradient-bg gcd-lcm-gradient">
+          <div class="input-header">
+            <div class="input-emoji gcd-lcm-emoji">🔢</div>
+            <h2 class="input-title">Enter Two Numbers</h2>
+            <p class="input-subtitle">Type any two positive integers to calculate their <span class="even-highlight">GCD</span> and <span class="odd-highlight">LCM</span>.</p>
+          </div>
+          <div class="input-container gcd-lcm-inputs">
+            <div class="input-wrapper">
+              <input type="number" id="number1" placeholder="First number..." min="1" />
+              <span class="input-hash">#</span>
+            </div>
+            <div class="gcd-lcm-vs">vs</div>
+            <div class="input-wrapper">
+              <input type="number" id="number2" placeholder="Second number..." min="1" />
+              <span class="input-hash">#</span>
+            </div>
+            <button id="calculateBtn" class="btn gcd-lcm-btn">
+              <span class="button-text">Calculate</span>
+              <span class="button-icon">✨</span>
+            </button>
+          </div>
+        </div>
+        <div class="result-section" id="resultSection">
+          <div class="results-grid gcd-lcm-results">
+            <div class="result-card glass-card fade-in gcd-card gcd-lcm-result-card">
+              <div class="result-icon gcd-lcm-icon">🔗</div>
+              <div class="result-label">GCD</div>
+              <div class="result-value" id="gcdResult">-</div>
+              <div class="result-description">Greatest Common Divisor</div>
+            </div>
+            <div class="result-card glass-card fade-in lcm-card gcd-lcm-result-card">
+              <div class="result-icon gcd-lcm-icon">📐</div>
+              <div class="result-label">LCM</div>
+              <div class="result-value" id="lcmResult">-</div>
+              <div class="result-description">Least Common Multiple</div>
+            </div>
+          </div>
+          <div class="calculation-steps gcd-lcm-steps" id="calculationSteps">
+            <h3><span class="gcd-lcm-step-title">📝 Step-by-Step Solution</span></h3>
+            <div class="steps-content" id="stepsContent"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="legend elevated-card" id="legend">
+        <h3 class="legend-title">🎨 Number Classification</h3>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="legend-color even"></div>
+            <div class="legend-text">
+              <span class="legend-label">GCD</span>
+              <span class="legend-description">Greatest Common Divisor</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color odd"></div>
+            <div class="legend-text">
+              <span class="legend-label">LCM</span>
+              <span class="legend-description">Least Common Multiple</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Facts Section -->
+      <div class="fun-facts-section elevated-card">
+        <h3>🧠 Did You Know?</h3>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <div class="fact-icon">🔗</div>
+            <h4>GCD & LCM Relationship</h4>
+            <p>The product of the GCD and LCM of two numbers equals the product of the numbers themselves.</p>
+            <div class="fact-highlight">GCD(a,b) × LCM(a,b) = a × b</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🧮</div>
+            <h4>Euclidean Algorithm</h4>
+            <p>The Euclidean algorithm is an efficient way to compute the GCD of two numbers, dating back to ancient Greece.</p>
+            <div class="fact-highlight">Over 2,300 years old</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">📐</div>
+            <h4>LCM in Real Life</h4>
+            <p>LCM is used to find common time intervals, such as when two events will coincide again.</p>
+            <div class="fact-highlight">Useful for schedules</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="gcd-lcm-script.js"></script>
+</body>
+</html>

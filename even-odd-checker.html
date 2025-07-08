@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathUtils - Even/Odd Checker</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="assets/images/icon.png" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+      <div class="navbar-container">
+        <a href="#" class="navbar-brand">🧮 MathUtils</a>
+        <ul class="navbar-menu" id="navbarMenu">
+          <li class="navbar-item">
+            <a href="index.html" class="navbar-link">🔍 Prime Visualization</a>
+          </li>
+          <li class="navbar-item">
+            <a href="even-odd-checker.html" class="navbar-link active">⚡ Even/Odd Checker</a>
+          </li>
+          <li class="navbar-item">
+            <a href="gcd-lcm.html" class="navbar-link">🔢 GCD & LCM</a>
+          </li>
+          <li class="navbar-item">
+            <a href="ascii-cheat-sheet.html" class="navbar-link">📝 ASCII Cheat Sheet</a>
+          </li>
+          <li class="navbar-item">
+            <a href="nfa-converter.html" class="navbar-link">🔄 Regex → NFA</a>
+          </li>
+          <li class="navbar-item">
+                <a href="base64.html" class="navbar-link">🔐 Base64</a>
+        </li>
+        </ul>
+        <button class="navbar-toggle" id="navbarToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="wrapper" id="wrapper">
+      <!-- Hero Section -->
+      <div class="hero-section">
+        <h1>⚡ Even or Odd Number Checker</h1>
+        <p class="subtitle">Instantly check if a number is even or odd and learn the difference with interactive examples!</p>
+      </div>
+
+      <!-- Instructions Panel -->
+      <div class="instructions-panel">
+        <h3>🎮 How to Use</h3>
+        <div class="instruction-grid">
+          <div class="instruction-item">
+            <span class="instruction-icon">🔢</span>
+            <p>Enter any integer in the input box below</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">⚡</span>
+            <p>Click <b>Check Now</b> to see if it's even or odd</p>
+          </div>
+          <div class="instruction-item">
+            <span class="instruction-icon">👀</span>
+            <p>See visual demos and examples for each type</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Checker Card -->
+      <div class="card checker-card">
+        <div class="input-section animated-gradient-bg">
+          <div class="input-header">
+            <div class="input-emoji">🔢</div>
+            <h2 class="input-title">Enter Your Number</h2>
+            <p class="input-subtitle">Type any integer and instantly discover if it's <span class="even-highlight">even</span> or <span class="odd-highlight">odd</span>!</p>
+          </div>
+          <div class="input-container">
+            <div class="input-wrapper">
+              <input type="number" id="numberInput" placeholder="Enter a number..." autocomplete="off" />
+              <span class="input-hash">#</span>
+            </div>
+            <button id="checkBtn" class="btn">
+              <span class="button-text">Check Now</span>
+              <span class="button-icon">✨</span>
+            </button>
+          </div>
+        </div>
+        <div class="result-section" id="resultSection">
+          <div class="result-card glass-card fade-in" id="resultCard">
+            <div class="result-header">
+              <div class="result-icon large" id="resultIcon"></div>
+              <div class="number-display" id="numberDisplay"></div>
+            </div>
+            <div class="result-content">
+              <div class="result-text" id="resultText"></div>
+              <div class="explanation" id="explanation"></div>
+              <div class="math-visualization" id="mathVisualization"></div>
+            </div>
+            <div class="celebration" id="celebration"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Section -->
+      <div class="legend elevated-card" id="legend">
+        <h3 class="legend-title">🎨 Number Classification</h3>
+        <div class="legend-items">
+          <div class="legend-item">
+            <div class="legend-color even"></div>
+            <div class="legend-text">
+              <span class="legend-label">Even Numbers</span>
+              <span class="legend-description">Divisible by 2 with zero remainder</span>
+            </div>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color odd"></div>
+            <div class="legend-text">
+              <span class="legend-label">Odd Numbers</span>
+              <span class="legend-description">Leave remainder 1 when divided by 2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fun Facts Section -->
+      <div class="fun-facts-section elevated-card">
+        <h3>🧠 Did You Know?</h3>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <div class="fact-icon">🔵</div>
+            <h4>Even Numbers</h4>
+            <p>Even numbers can be positive, negative, or zero. Zero is considered even!</p>
+            <div class="fact-highlight">0, 2, 4, 6, ...</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🔴</div>
+            <h4>Odd Numbers</h4>
+            <p>Odd numbers are always one more or one less than an even number.</p>
+            <div class="fact-highlight">1, 3, 5, 7, ...</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🧮</div>
+            <h4>Alternating Pattern</h4>
+            <p>Even and odd numbers alternate on the number line, creating a simple pattern.</p>
+            <div class="fact-highlight">Even, Odd, Even, Odd...</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="even-odd-script.js"></script>
+  </body>
+</html>
