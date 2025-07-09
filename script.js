@@ -63,8 +63,9 @@ function generateNumbersOnDOM() {
 function sieve() {
     const allRows = primeTableBody.children;
 
-    // Mark 1 as neither prime nor composite
+    // Mark 1 as neither prime nor composite (yellow)
     allRows[0].children[0].classList.add('neutral');
+    allRows[0].children[0].classList.remove('special'); // Remove any old class
     allRows[0].children[0].setAttribute('title', 'Number: 1 (Neither prime nor composite)');
 
     for (let i = 2; i < MAX; i++) {
@@ -74,7 +75,8 @@ function sieve() {
         let element = allRows[row].children[column];
 
         if (check[i]) {
-            element.classList.add('prime');
+            element.classList.add('prime'); // Red
+            element.classList.remove('special');
             element.setAttribute('title', `Number: ${i} (Prime number)`);
 
             for (let j = i * i; j < MAX; j += i) {
@@ -83,7 +85,8 @@ function sieve() {
                 row = rc[0];
                 column = rc[1];
                 element = allRows[row].children[column];
-                element.classList.add('composite');
+                element.classList.add('composite'); // Green
+                element.classList.remove('special');
                 element.setAttribute('title', `Number: ${j} (Composite number, divisible by ${i})`);
             }
         }

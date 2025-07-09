@@ -14,6 +14,126 @@
         border-radius: 8px;
         overflow: hidden;
       }
+      /* Enhanced Navbar Styles */
+      .navbar {
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 4px 18px 0 rgba(30, 64, 175, 0.08), 0 1.5px 0 0 #2563eb22;
+        border-radius: 0 0 18px 18px;
+        padding: 0.5rem 0;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        transition: box-shadow 0.3s;
+      }
+      .navbar-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 2rem;
+      }
+      .navbar-brand {
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: #2563eb;
+        letter-spacing: 1px;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.3rem 1rem 0.3rem 0.2rem;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #e0e7ff 0%, #f8fafc 100%);
+        box-shadow: 0 1px 6px #2563eb11;
+      }
+      .navbar-menu {
+        display: flex;
+        gap: 0.5rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .navbar-item {
+        margin: 0;
+      }
+      .navbar-link {
+        display: block;
+        padding: 0.5rem 1.1rem;
+        border-radius: 8px;
+        color: #1e293b;
+        font-weight: 600;
+        text-decoration: none;
+        font-size: 1.05rem;
+        transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      }
+      .navbar-link:hover, .navbar-link.active {
+        background: linear-gradient(90deg, #2563eb22 0%, #a5b4fc33 100%);
+        color: #2563eb;
+        box-shadow: 0 2px 8px #2563eb11;
+      }
+      .github-link {
+        margin-left: 1.2rem;
+        color: #1e293b;
+        border-radius: 50%;
+        padding: 0.3rem;
+        transition: background 0.2s, color 0.2s;
+        display: flex;
+        align-items: center;
+      }
+      .github-link:hover {
+        background: #e0e7ff;
+        color: #2563eb;
+      }
+      .navbar-toggle {
+        display: none;
+        flex-direction: column;
+        gap: 4px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        margin-left: 1.2rem;
+      }
+      .navbar-toggle span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: #2563eb;
+        border-radius: 2px;
+      }
+      @media (max-width: 900px) {
+        .navbar-container {
+          padding: 0 0.7rem;
+        }
+      }
+      @media (max-width: 700px) {
+        .navbar-menu {
+          position: absolute;
+          top: 60px;
+          left: 0;
+          right: 0;
+          background: rgba(255,255,255,0.98);
+          flex-direction: column;
+          gap: 0;
+          box-shadow: 0 8px 24px #2563eb11;
+          border-radius: 0 0 18px 18px;
+          overflow: hidden;
+          max-height: 0;
+          transition: max-height 0.3s;
+        }
+        .navbar-menu.active {
+          max-height: 400px;
+          transition: max-height 0.4s;
+        }
+        .navbar-link {
+          padding: 1rem 1.5rem;
+          font-size: 1.1rem;
+        }
+        .navbar-toggle {
+          display: flex;
+        }
+      }
     </style>
   </head>
   <body>
@@ -37,10 +157,15 @@
                 <li class="navbar-item">
                     <a href="nfa-converter.html" class="navbar-link">🔄 Regex → NFA</a>
                 </li>
-                 <li class="navbar-item">
+                <li class="navbar-item">
                     <a href="base64.html" class="navbar-link">🔐 Base64</a>
                 </li>
             </ul>
+            <a href="https://github.com/raihanulislam00/" class="github-link" target="_blank" title="View on GitHub" rel="noopener">
+                <svg height="28" width="28" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true" style="display:inline;vertical-align:middle;">
+                  <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"></path>
+                </svg>
+            </a>
             <button class="navbar-toggle" id="navbarToggle">
                 <span></span>
                 <span></span>
@@ -48,15 +173,28 @@
             </button>
         </div>
     </nav>
+    <script>
+        // Navigation toggle
+        document.addEventListener('DOMContentLoaded', function() {
+            var toggle = document.getElementById('navbarToggle');
+            if (toggle) {
+                toggle.addEventListener('click', function() {
+                    document.getElementById('navbarMenu').classList.toggle('active');
+                });
+            }
+        });
+    </script>
 
     <div class="wrapper" id="wrapper">
       <!-- Hero Section -->
-      <div class="hero-section">
-        
-        <h1>🔍 Prime Number Visualization</h1>
-        <p class="subtitle">Discover the fascinating world of prime numbers from 1 to 200 using the ancient Sieve of Eratosthenes algorithm</p>
-        
-        
+      <div class="hero-section enhanced-hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+          <div class="hero-icon">🔍</div>
+          <h1 class="hero-title">Prime Visualization</h1>
+          <p class="hero-subtitle">Discover the fascinating world of <span class="prime-highlight">prime numbers</span> from <b>1</b> to <b>200</b> <br>using the ancient <span class="algo-highlight">Sieve of Eratosthenes</span> algorithm</p>
+        </div>
+      </div>
       <!-- Prime Race Game -->
       <div class="game-section">
         <h3>🏁 Prime Race Game</h3>
